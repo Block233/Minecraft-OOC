@@ -8,32 +8,17 @@
 /setblock 4 202 -3 minecraft:stone_button 4
 /tellraw @p {\"text\":\"\",\"extra\":[{\"text\":\"将下一段命令复制到命令方块里，然后点击此按钮以进行下一步操作\",\"color\":\"aqua\",\"bold\":\"true\"}]}
 /setblock 4 202 -2 minecraft:command_block
-/setblock 5 202 -2 minecraft:redstone_wire
 
 
 第一段命令（本体）OOC：
 
-/summon FallingSand ~2 ~ ~ {Time:1,Block:"minecraft:redstone_block",Passengers:[{id:"FallingSand",Time:1,Block:"minecraft:activator_rail",Passengers:[{id:"MinecartCommandBlock",Command:"/tp @p 0 210 -2"},{id:"MinecartCommandBlock",Command:"/gamerule commandBlockOutput false"},{id:"MinecartCommandBlock",Command:"/kill @e[type=Item]"},{id:"MinecartCommandBlock",Command:"/fill 0 201 -8 8 201 -1 grass"},{id:"MinecartCommandBlock",Command:"/tp @p 4 202 -4 0 38.4"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -3 minecraft:stone_button 4"},{id:"MinecartCommandBlock",Command:"/tellraw @p {\"text\":\"\",\"extra\":[{\"text\":\"将下一段命令复制到命令方块里，然后点击此按钮以进行下一步操作\",\"color\":\"aqua\",\"bold\":\"true\"}]}"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -2 minecraft:command_block"},{id:"MinecartCommandBlock",Command:"/setblock 5 202 -2 minecraft:redstone_wire"},{id:"MinecartCommandBlock",Command:"/setblock ~ ~-1 ~ minecraft:lava 15 replace"}]}]}
-
-
-建筑方块处理（懒癌卫士）：
-
-//提示
-after:/tellraw @p {"text":"","extra":[{"text":"请再点一次按钮以执行下一步操作(。・＿・。)ﾉ","color":"aqua","bold":"true"}]}
-//为了防止建筑高度不够
-init:/setblock 9 3 -2 minecraft:repeating_command_block 0 0 {auto:1}
-init:/fill 9 4 -2 9 255 -2 air
-//建筑方块
-icb:/fill 0 200 0 27 200 0 dirt
-【将“需要摆放的建筑方块”里的所有东西放在这里来，上面的icb除外】
-//如果处理成功，则执行此命令以清除命令方块（使用FallingSand放置红石块激活fill命令方块）
-/summon FallingSand ~ 255 ~ {Time:3,Block:"minecraft:redstone_block"}
-//fill空气以清除命令方块（配合FallingSand）
-icb:/fill 6 202 -2 6 255 -2 air
+/summon FallingSand ~2 ~ ~ {Time:1,Block:"minecraft:redstone_block",Passengers:[{id:"FallingSand",Time:1,Block:"minecraft:activator_rail",Passengers:[{id:"MinecartCommandBlock",Command:"/tp @p 0 210 -2"},{id:"MinecartCommandBlock",Command:"/gamerule commandBlockOutput false"},{id:"MinecartCommandBlock",Command:"/kill @e[type=Item]"},{id:"MinecartCommandBlock",Command:"/fill 0 201 -8 8 201 -1 grass"},{id:"MinecartCommandBlock",Command:"/tp @p 4 202 -4 0 38.4"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -3 minecraft:stone_button 4"},{id:"MinecartCommandBlock",Command:"/tellraw @p {\"text\":\"\",\"extra\":[{\"text\":\"将下一段命令复制到命令方块里，然后点击此按钮以进行下一步操作\",\"color\":\"aqua\",\"bold\":\"true\"}]}"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -2 minecraft:command_block"},{id:"MinecartCommandBlock",Command:"/setblock ~ ~-1 ~ minecraft:lava 15 replace"}]}]}
 
 
 需要摆放的建筑方块：
 
+/kill @e[type=Item]
+/fill 0 200 0 27 200 0 dirt
 /fill 0 201 0 27 201 0 grass
 /fill 26 205 0 22 206 0 minecraft:leaves
 /fill 25 207 0 24 207 0 minecraft:leaves
@@ -95,4 +80,73 @@ icb:/fill 6 202 -2 6 255 -2 air
 /fill 4 208 2 4 207 2 minecraft:leaves
 /fill 7 207 2 6 207 2 minecraft:leaves
 /setblock 7 208 2 minecraft:leaves 
+/fill 27 200 3 0 200 3 dirt
+/fill 27 201 3 26 201 3 dirt
+/fill 25 201 3 0 201 3 grass
+/fill 27 202 3 26 202 3 grass
+/setblock 27 203 3 minecraft:yellow_flower
+/setblock 6 202 3 minecraft:tallgrass 1
+/setblock 1 202 3 minecraft:tallgrass 1
+/fill 27 207 3 26 206 3 minecraft:leaves 2
+/setblock 25 207 3 minecraft:leaves 2
+/setblock 26 205 3 minecraft:leaves
+/fill 25 206 3 18 205 3 minecraft:leaves
+/fill 20 208 3 20 207 3 minecraft:leaves
+/fill 21 209 3 23 213 3 minecraft:leaves
+/fill 24 212 3 24 210 3 minecraft:leaves
+/setblock 25 210 3 minecraft:leaves
+/setblock 22 214 3 minecraft:leaves
+/setblock 22 214 3 minecraft:leaves
+/setblock 20 216 3 minecraft:leaves
+/fill 18 213 3 22 214 3 minecraft:leaves
+/fill 19 212 3 16 209 3 minecraft:leaves
+/setblock 18 208 3 minecraft:leaves
+/setblock 16 208 3 minecraft:leaves
+/fill 15 210 3 15 209 3 minecraft:leaves
+/setblock 20 212 3 minecraft:log 8
+/setblock 17 208 3 minecraft:log 8
+/setblock 11 218 3 minecraft:leaves 12
+/fill 13 213 3 11 213 3 minecraft:leaves 12
+/setblock 14 214 3 minecraft:leaves 12
+/setblock 11 214 3 minecraft:leaves 12
+/fill 13 215 3 12 215 3 minecraft:leaves 12
+/setblock 13 216 3 minecraft:leaves 15
+/setblock 11 215 3 minecraft:leaves 15
+/setblock 13 214 3 minecraft:log 4
+/setblock 12 214 3 minecraft:log 8
+/fill 8 215 3 8 214 3 minecraft:leaves 12
+/setblock 9 214 3 minecraft:leaves 12
+/setblock 9 215 3 minecraft:leaves 15
+/setblock 7 216 3 minecraft:leaves 12
+/setblock 7 213 3 minecraft:leaves 12
+/fill 6 215 3 6 214 3 minecraft:leaves 12
+/setblock 5 214 3 minecraft:leaves 15
+/setblock 6 213 3 minecraft:leaves 15
+/fill 9 205 3 3 205 3 minecraft:leaves
+/fill 2 206 3 8 206 3 minecraft:leaves
+/setblock 21 215 3 minecraft:leaves
+/setblock 7 215 3 minecraft:log
+/setblock 7 214 3 minecraft:log 8
+/fill 21 215 3 19 215 3 minecraft:leaves
+/fill 13 214 0 13 215 0 minecraft:leaves 12
+/setblock 7 214 1 minecraft:leaves 12
+
+
+
+
+
+建筑方块处理（懒癌卫士）（已废）：
+
+//提示
+after:/tellraw @p {"text":"","extra":[{"text":"请再点一次按钮以执行下一步操作(。・＿・。)ﾉ","color":"aqua","bold":"true"}]}
+//为了防止建筑高度不够
+init:/setblock 9 3 -2 minecraft:repeating_command_block 0 0 {auto:1}
+init:/fill 9 4 -2 9 255 -2 air
+//建筑方块
+icb:/fill 0 200 0 27 200 0 dirt
+【将“需要摆放的建筑方块”里的所有东西放在这里来，上面的icb除外】
+//如果处理成功，则执行此命令以清除命令方块（使用FallingSand放置红石块激活fill命令方块）
+/summon FallingSand ~ 255 ~ {Time:3,Block:"minecraft:redstone_block"}
+//fill空气以清除命令方块（配合FallingSand）
+icb:/fill 6 202 -2 6 255 -2 air
 
