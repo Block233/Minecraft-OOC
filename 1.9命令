@@ -1,5 +1,4 @@
 第一段命令（本体）：
-
 /tp @p 0 210 -2
 /gamerule commandBlockOutput false
 /kill @e[type=Item]
@@ -11,8 +10,15 @@
 
 
 第一段命令（本体）OOC：
-
 /summon FallingSand ~2 ~ ~ {Time:1,Block:"minecraft:redstone_block",Passengers:[{id:"FallingSand",Time:1,Block:"minecraft:activator_rail",Passengers:[{id:"MinecartCommandBlock",Command:"/tp @p 0 210 -2"},{id:"MinecartCommandBlock",Command:"/gamerule commandBlockOutput false"},{id:"MinecartCommandBlock",Command:"/kill @e[type=Item]"},{id:"MinecartCommandBlock",Command:"/fill 0 201 -8 8 201 -1 grass"},{id:"MinecartCommandBlock",Command:"/tp @p 4 202 -4 0 38.4"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -3 minecraft:stone_button 4"},{id:"MinecartCommandBlock",Command:"/tellraw @p {\"text\":\"\",\"extra\":[{\"text\":\"将下一段命令复制到命令方块里，然后点击此按钮以进行下一步操作\",\"color\":\"aqua\",\"bold\":\"true\"}]}"},{id:"MinecartCommandBlock",Command:"/setblock 4 202 -2 minecraft:command_block"},{id:"MinecartCommandBlock",Command:"/setblock ~ ~-1 ~ minecraft:lava 15 replace"}]}]}
+
+
+第二段命令打算通过简单的那个OOC生成器来生成，直接把需要摆放的建筑方块放进去就可以了吧。我想。
+
+
+
+
+
 
 
 
